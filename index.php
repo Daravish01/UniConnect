@@ -1,342 +1,498 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="Tooplate" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/9b6907c043.js" crossorigin="anonymous"></script>
 
-include("./parts/top_navbar.php");
-include("./parts/offcanvas.php");
+    <title>UniConnect</title>
 
-if (!isset($_SESSION['user_id'])) {
-            header("Location: " . Config::SITEURL . "ClubPersident/index.php");
-            exit();
-        }
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
 
-        $user_id = $_SESSION['user_id'];
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
 
-?>
+    <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css" />
 
-
-    <br />
-
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-9 ">
-                <div class="row ">
-                    <h5 class="px-4 ">Deshboard</h5>
-                    
-                        <div class="col-3 ">                       
-                            <div class="container  ">
-                                <a href="<?php echo Config::SITEURL; ?>ClubPersident/news.php" class="nav-link">
-                                <div class="row border border-1 rounded  shadow bg-body rounded">
-                                    <div class="col-auto p-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                            class="bi bi-stickies-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M0 1.5V13a1 1 0 0 0 1 1V1.5a.5.5 0 0 1 .5-.5H14a1 1 0 0 0-1-1H1.5A1.5 1.5 0 0 0 0 1.5" />
-                                            <path
-                                                d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177z" />
-                                        </svg>
-                                    </div>
-                                    <div class="col-auto py-3">
-                                        <p>News</p>
-                                        <p>5</p>
-                                    </div>
-                                </div>
-                            </a>
-                          </div>
-                        </div>
-                   
-                    
-                    <div class="col-3 ">
-                        <div class="container ">
-                            <a href="<?php echo Config::SITEURL; ?>ClubPersident/Events.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                        class="bi bi-calendar-event-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
-                                    </svg>
-
-                                </div>
-                                <div class="col-auto py-3 ">
-                                    <p>Events</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-
-                    <div class="col-3 ">
-                        <div class="container">
-                        <a href="<?php echo Config::SITEURL; ?>ClubPersident/Reminders.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                        class="bi bi-bell-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
-                                    </svg>
-                                </div>
-                                <div class="col-auto py-3">
-                                    <p>Reminders</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                        </a>
-                       </div>
-                    </div>
+    <link rel="stylesheet" href="assets/css/tooplate-artxibition.css" />
+    <!--
 
 
-                    <div class="col-3 ">
-                        <div class="container">
-                        <a href="<?php echo Config::SITEURL; ?>ClubPersident/Notifications.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell-slash-fill" viewBox="0 0 16 16">
-                                        <path d="M5.164 14H15c-1.5-1-2-5.902-2-7q0-.396-.06-.776zm6.288-10.617A5 5 0 0 0 8.995 2.1a1 1 0 1 0-1.99 0A5 5 0 0 0 3 7c0 .898-.335 4.342-1.278 6.113zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
-                                      </svg>
-                                </div>
-                                <div class="col-auto py-3">
-                                    <p>Notifications</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                        </a>
-                       </div>
-                    </div>
-        
-                    
+  </head>
 
-                </div>
-                <br>
-
-                <div class="row">
-                    <h5 class="px-4 mt-3">Sell Items</h5>
-                    <div class="col-4">
-                        <div class="container">
-                        <a href="<?php echo Config::SITEURL; ?>ClubPersident/Tickets.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4-1v1h1v-1zm1 3v-1H4v1zm7 0v-1h-1v1zm-1-2h1v-1h-1zm-6 3H4v1h1zm7 1v-1h-1v1zm-7 1H4v1h1zm7 1v-1h-1v1zm-8 1v1h1v-1zm7 1h1v-1h-1z" />
-                                    </svg>
-                                </div>
-                                <div class="col-auto py-4">
-                                    <p>Tickets</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="container">
-                            <a href="<?php echo Config::SITEURL; ?>ClubPersident/Products.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-box-seam-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461z" />
-                                    </svg>
-                                </div>
-                                <div class="col-auto py-4">
-                                    <p>Products</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                          </a>   
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="container">
-                          <a href="<?php echo Config::SITEURL; ?>ClubPersident/Services.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-wallet-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2z" />
-                                        <path
-                                            d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5z" />
-                                    </svg>
-                                </div>
-                                <div class="col-auto py-4">
-                                    <p>Services</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                        </div>
-                      </a>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <h5 class="px-4 mt-3">Orders</h5>
-                    <div class="col-6">
-                        <div class="container">
-                          <a href="<?php echo Config::SITEURL; ?>ClubPersident/Tickets_orders.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4-1v1h1v-1zm1 3v-1H4v1zm7 0v-1h-1v1zm-1-2h1v-1h-1zm-6 3H4v1h1zm7 1v-1h-1v1zm-7 1H4v1h1zm7 1v-1h-1v1zm-8 1v1h1v-1zm7 1h1v-1h-1z" />
-                                    </svg>
-                                </div>
-                                <div class="col-auto py-4">
-                                    <p>Tickets</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                          </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="container">
-                           <a href="<?php echo Config::SITEURL; ?>ClubPersident/Product_orders.php" class="nav-link">
-                            <div class="row border border-1 rounded shadow bg-body rounded">
-                                <div class="col-auto p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-                                        class="bi bi-box-seam-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461z" />
-                                    </svg>
-                                </div>
-                                <div class="col-auto py-4">
-                                    <p>Products</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                          </a>
-                        </div>
-                    </div>
-                    
-                </div>
-
-                
-
-
-            </div>
-
-
-            <div class="col-3">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="container">
-                            <h5 class="mt-2">Calender</h5>
-                            <iframe
-                                src="https://calendar.google.com/calendar/embed?height=300&wkst=2&bgcolor=%23ffffff&ctz=UTC&showTitle=0&mode=MONTH&showCalendars=1&showPrint=0&showNav=0&showTabs=0&title=Event&showTz=0&showDate=1&src=aGFzaXRoYS5zb2Z0LmxrQGdtYWlsLmNvbQ&src=ZW4ubGsjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043"
-                                style="border:solid 1px #777" width="350" height="300" frameborder="0"
-                                scrolling="no">
-                            </iframe>
-
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="container">
-                            <h5 class="px-1 mt-4">Today Updates</h5>
-                            <div>
-                                <div
-                                  id="carouselExampleInterval"
-                                  class="carousel slide"
-                                  data-bs-ride="carousel"
-                                >
-                                  <div class="carousel-inner">
-                                    <div class="carousel-item active" data-bs-interval="2000">
-                                      <a href="./events.html">
-                                        <img
-                                          src="./picuters/samples/b-1.png"
-                                          class="d-block w-100"
-                                          width="100"
-                                          height="100%"
-                                          alt="..."
-                                        />
-                                      </a>
-                                    </div>
-                                    <div class="carousel-item active" data-bs-interval="2000">
-                                      <a href="./events.html">
-                                        <img
-                                          src="./picuters/samples/b-2.png"
-                                          class="d-block w-100"
-                                          width="100"
-                                          height="100%"
-                                          alt="..."
-                                        />
-                                      </a>
-                                    </div>
-                                    <div class="carousel-item active" data-bs-interval="2000">
-                                      <a href="./events.html">
-                                        <img
-                                          src="./picuters/samples/b-3.png"
-                                          class="d-block w-100"
-                                          width="100"
-                                          height="100%"
-                                          alt="..."
-                                        />
-                                      </a>
-                                    </div>
-                                  </div>
-                                  <button
-                                    class="carousel-control-prev"
-                                    type="button"
-                                    data-bs-target="#carouselExampleInterval"
-                                    data-bs-slide="prev"
-                                  >
-                                    <span
-                                      class="carousel-control-prev-icon"
-                                      aria-hidden="true"
-                                    ></span>
-                                    <span class="visually-hidden">Previous</span>
-                                  </button>
-                                  <button
-                                    class="carousel-control-next"
-                                    type="button"
-                                    data-bs-target="#carouselExampleInterval"
-                                    data-bs-slide="next"
-                                  >
-                                    <span
-                                      class="carousel-control-next-icon"
-                                      aria-hidden="true"
-                                    ></span>
-                                    <span class="visually-hidden">Next</span>
-                                  </button>
-                                </div>
-                              </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <!-- <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </div>
+    </div>  -->
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Pre HEader ***** -->
+    <!-- <div class="pre-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-sm-6">
+            <span>Hey! The Show is Starting in 15 Days.</span>
+          </div>
+          <div class="col-lg-6 col-sm-6">
+            <div class="text-button">
+              <a href="rent-venue.html"
+                >Contact Us Now! <i class="fa fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="index.html" class="logo">Uni <em>Connect </em> </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li><a href="./index.php" class="active">Home</a></li>
+                <li><a href="./about.php">About Us</a></li>
+                <li><a href="./Products.php">Products</a></li>
+                <li><a href="./Services.php">Services</a></li>
+                <li><a href="./event-details.php">Events</a></li>
+                <li><a href="./tickets.php">Tickets</a></li>
+                <li><a href="./index.php">profile</a></li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner">
+      <div class="counter-content">
+        <!-- <ul>
+          <li>Days<span id="days"></span></li>
+          <li>Hours<span id="hours"></span></li>
+          <li>Minutes<span id="minutes"></span></li>
+          <li>Seconds<span id="seconds"></span></li>
+        </ul> -->
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-content">
+              <div class="next-show">
+                <!-- <i class="fa fa-arrow-up"></i>
+                <span>Next Show</span> -->
+              </div>
+              <!-- <h6>Opening on Thursday, March 31st</h6> -->
+              <h2>The UniConnect</h2>
+              <div class="main-white-button"> 
+              <a href="UniConnect/sign_up/sign_up.php" class="btn btn-light rounded-pill" style="background-color: #ffffff; color: #492E87;">Log in</a>
+<a href="/sign_up/sign_up.php" class="btn btn-dark rounded-pill" style="background-color: #492E87;">Sign up</a>
 
 
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
 
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- *** Owl Carousel Items ***-->
+    <div class="show-events-carousel">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="owl-show-events owl-carousel">
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-01.jpg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-02.jpg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-03.jpg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-04.jpg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-01.jpg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-02.jpg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-03.jpg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="event-details.html"
+                  ><img src="assets/images/show-events-04.jpg" alt=""
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- *** Amazing Venus ***-->
+    <div class="amazing-venues">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="left-content">
+              <h4>UniConnect</h4>
+              
+              
+              <p style="font-size: 20px;color:gray;">
+                Welcome to UniConnect, where every click brings you closer to
+                the pulsating heart of university life. Our platform is the
+                nexus between eventful campus experiences and the
+                entrepreneurial spirit of the student body. UniConnect isn’t
+                just about event management and ticketing; it’s a celebration of
+                innovation, a marketplace for ideas, and a showcase for the
+                industrious talents of undergraduates.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="right-content">
+              <!-- <h5><i class="fa fa-map-marker"></i> Visit Us</h5> -->
+              <!-- <span
+                >5 College St NW, <br />Norcross, GA 30071<br />United
+                States</span
+              > -->
+              <div class="text-button">
+                <a href="show-events-details.html"
+                  >Need Directions? <i class="fa fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
+    <!-- *** Venues & Tickets ***-->
+    <div class="venue-tickets">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-heading">
+              <h2>Our Events & Tickets</h2>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="venue-item">
+              <div class="thumb">
+                <img src="assets/images/venue-01.jpg" alt="" />
+              </div>
+              <div class="down-content">
+                <div class="left-content">
+                  <div class="main-white-button">
+                    <a href="ticket-details.html">Purchase Tickets</a>
+                  </div>
+                </div>
+                <div class="right-content">
+                  <h4>UniConnect 1</h4>
+                  <p>Connecting Passions, Building Futures Uniconnect uniconnect</p>
+                  <ul>
+                    <!-- <li><i class="fa fa-sitemap"></i>250</li> -->
+                    <li><i class="fa fa-user"></i>500</li>
+                  </ul>
+                  <div class="price">
+                    <span>1 ticket<br />from <em>500</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="venue-item">
+              <div class="thumb">
+                <img src="assets/images/venue-02.jpg" alt="" />
+              </div>
+              <div class="down-content">
+                <div class="left-content">
+                  <div class="main-white-button">
+                    <a href="ticket-details.html">Purchase Tickets</a>
+                  </div>
+                </div>
+                <div class="right-content">
+                  <h4>UniConnect-2</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur 
+                  </p>
+                  <ul>
+                    <!-- <li><i class="fa fa-sitemap"></i>450</li> -->
+                    <li><i class="fa fa-user"></i>650</li>
+                  </ul>
+                  <div class="price">
+                    <span>1 ticket<br />from <em>100</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="venue-item">
+              <div class="thumb">
+                <img src="assets/images/venue-03.jpg" alt="" />
+              </div>
+              <div class="down-content">
+                <div class="left-content">
+                  <div class="main-white-button">
+                    <a href="ticket-details.html">Purchase Tickets</a>
+                  </div>
+                </div>
+                <div class="right-content">
+                  <h4>Handawa</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur vinzi iscingelit,
+                  
+                  </p>
+                  <ul>
+                    
+                    <li><i class="fa fa-user"></i>750</li>
+                  </ul>
+                  <div class="price">
+                    <span>1 ticket<br />from <em>650</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- *** Coming Events ***-->
+    <div class="coming-events">
+      <div class="left-button">
+        <div class="main-white-button">
+          <a href="shows-events.html">Discover Services</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="event-item">
+              <div class="thumb">
+                <a href="event-details.html"
+                  ><img src="assets/images/event-01.jpg" alt=""
+                /></a>
+              </div>
+              <div class="down-content">
+                <a href="event-details.html"
+                  ><h4>Tutions</h4></a
+                >
+                <ul>
+                  <li><i class="fa-solid fa-person"></i> By Thisal</li>
+                  <li>
+                    <i class="fa-solid fa-address-book"></i> 0712345678
+                    
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="event-item">
+              <div class="thumb">
+                <a href="event-details.html"
+                  ><img src="assets/images/event-02.jpg" alt=""
+                /></a>
+              </div>
+              <div class="down-content">
+                <a href="event-details.html"><h4>Gift Box Delivery</h4></a>
+                <ul>
+                  <li><i class="fa-solid fa-person"></i> By Nisal</li>
+                  <li>
+                    <i class="fa-solid fa-address-book"></i> 0712345678
+                    
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="event-item">
+              <div class="thumb">
+                <a href="event-details.html"
+                  ><img src="assets/images/event-03.jpg" alt=""
+                /></a>
+              </div>
+              <div class="down-content">
+                <a href="event-details.html"><h4>Food delivery</h4></a>
+                <ul>
+                  <li><i class="fa-solid fa-person"></i> By Thisal</li>
+                  <li>
+                    <i class="fa-solid fa-address-book"></i> 0712345678
+                    
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- *** Subscribe *** -->
+    <div class="subscribe">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h4>Subscribe Our Newsletter:</h4>
+          </div>
+          <div class="col-lg-8">
+            <form id="subscribe" action="" method="get">
+              <div class="row">
+                <div class="col-lg-9">
+                  <fieldset>
+                    <input
+                      name="email"
+                      type="text"
+                      id="email"
+                      pattern="[^ @]*@[^ @]*"
+                      placeholder="Your Email Address"
+                      required=""
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-lg-3">
+                  <fieldset>
+                    <button
+                      type="submit"
+                      id="form-submit"
+                      class="main-dark-button"
+                    >
+                      Submit
+                    </button>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- *** Footer *** -->
+    <footer>
+     
+     
+       
+          <div class="col-lg-12">
+            <div class="sub-footer">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="logo">
+                    <span>Uni<em>Connect</em></span>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="menu">
+                    <ul>
+                      <li><a href="./index.php" class="active">Home</a></li>
+                      <li><a href="./about.php">About Us</a></li>
+                      <li><a href="./Products.php">Products</a></li>
+                      <li><a href="./tickets.php">Tickets & Events</a></li>
+                      <li><a href="./ticket-details.php">Services</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="social-links">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="fa fa-behance"></i></a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/mixitup.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+  </body>
 </html>
